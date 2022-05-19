@@ -1,3 +1,4 @@
+// https://beta.openai.com/examples/default-keywords
 import { Configuration, OpenAIApi } from "openai";
 
 const configuration = new Configuration({
