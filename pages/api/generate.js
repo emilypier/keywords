@@ -1,4 +1,4 @@
-// https://beta.openai.com/examples/default-keywords
+// want to use keywords api https://beta.openai.com/examples/default-keywords
 import { Configuration, OpenAIApi } from "openai";
 
 const configuration = new Configuration({

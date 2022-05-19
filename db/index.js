@@ -20,7 +20,7 @@ class DB {
     return deleteAsync('db/db.json', JSON.stringify(text));
   }
 
-  readNotes(){
+  readTexts(){
     return this.read().then((texts)=>{
       let allTexts;
 
@@ -34,13 +34,13 @@ class DB {
     })
   }
 
-  writeNotes(text){
-    const {textContent} = text; //deconstructing note
-    const newNote = {
+  writeTexts(text){
+    const {textContent} = text; //deconstructing text
+    const newText = {
       textContent, id: uuid() //unique id
     }
 
-    return this.readNotes().then((notes)=>{
+    return this.readTexts().then((texts)=>{
       return [...texts, newText]
     }).then((newTextsArray) => {
       return this.write(newTextsArray)

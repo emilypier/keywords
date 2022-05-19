@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const { readNotes } = require('../db/index');
+const { readTexts, writeTexts } = require('../db/index');
 const db = require('../db/index')
 
 // GET /api/texts should read db.json file & return all saved texts as JSON.
 router.get('/texts', (req, res) => {
-  db.readNotes().then((data)=>{
+  db.readTexts().then((data)=>{
     return res.json(data)
   }).catch((err)=> res.json(err))
 });
@@ -12,7 +12,7 @@ router.get('/texts', (req, res) => {
 // POST /api/texts should receive a new text to save on the request body,
 // add it to db.json, then return the text to client.
 router.post('/texts', (req, res) => {
-  db.writeNotes(req.body).then((data) => {
+  db.writeTexts(req.body).then((data) => {
     return res.json(data)
   }).catch((err) => res.json(err))
 });
